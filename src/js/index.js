@@ -33,18 +33,12 @@ const controlSearch = async () => {
         searchView.clearResults();
         renderLoader(elements.searchResultPanel);
 
-
         // Search for recipes
         try{
             await state.search.getResults();
-
             searchView.renderResults(state.search.recipes);
-
         }catch(error){
-
         }
-        
-
         // Render results on UI
         clearLoader();
         
@@ -71,17 +65,9 @@ elements.searchResultPages.addEventListener('click', e => {
  * 
  * 
  */
-
-
-
 const controlRecipe = async () => {
-
     //Get ID from url
     const id = window.location.hash.replace('#','');
-    //Testing
-    console.log(id);
-    
-
     if (id){
         //Prepare UI for changes
         recipeView.clearRecipe();
@@ -133,7 +119,6 @@ const controlRecipe = async () => {
  elements.shopping.addEventListener('click', e => {
      const id = e.target.closest('.shopping__item').dataset.itemid;
      //console.log(e.target.closest('.shopping__item').dataset.itemid);
-
      //Delete button
      if (e.target.matches('.shopping__delete, .shopping__delete *')){
          //Delete state
